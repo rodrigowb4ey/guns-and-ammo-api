@@ -16,12 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from armas.views import ArmaViewSet
+from municao.views import MunicaoViewSet
 from utils import views
 
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'calibres', views.CalibreViewSet)
+router.register(r'tipos_de_objeto', views.ObjetoTipoViewSet)
+router.register(r'objetos', views.ObjetoViewSet)
+router.register(r'armas', ArmaViewSet)
+router.register(r'municao', MunicaoViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
