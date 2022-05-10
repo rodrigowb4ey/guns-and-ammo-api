@@ -31,4 +31,5 @@ class ObjetoTipo(models.Model):
 
 
 class Objeto(models.Model):
+    id = models.BigAutoField(primary_key=True)
     objeto_tipo = models.ForeignKey(ObjetoTipo, on_delete=models.PROTECT)

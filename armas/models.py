@@ -5,7 +5,7 @@ class Arma(models.Model):
     calibre = models.ForeignKey(Calibre, on_delete=models.PROTECT)
     marca = models.CharField(max_length=64, blank=False)
     modelo = models.CharField(max_length=64, blank=False)
-    quantidade_de_tiros = models.IntegerField()
+    quantidade_de_tiros = models.IntegerField(null=False, blank=False)
     valor_estimado = models.FloatField(null=False, blank=False)
     imagem = models.CharField(max_length=128)
     objeto = models.ForeignKey(Objeto, on_delete=models.CASCADE)
