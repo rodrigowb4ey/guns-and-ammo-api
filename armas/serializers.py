@@ -10,7 +10,7 @@ class ArmaSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = Arma
-        fields = ['id', 'calibre', 'marca', 'modelo', 'quantidade_de_tiros', 'valor_estimado', 'imagem', 'objeto']
+        fields = ['url', 'id', 'calibre', 'marca', 'modelo', 'quantidade_de_tiros', 'valor_estimado', 'imagem', 'objeto']
 
     def create(self, validated_data):
         calibre_data = validated_data.pop('calibre')

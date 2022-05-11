@@ -10,7 +10,7 @@ class MunicaoSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = Municao
-        fields = ['id', 'calibre', 'marca', 'modelo', 'valor_estimado', 'objeto']
+        fields = ['url', 'id', 'calibre', 'marca', 'modelo', 'valor_estimado', 'objeto']
 
     def create(self, validated_data):
         calibre_data = validated_data.pop('calibre')

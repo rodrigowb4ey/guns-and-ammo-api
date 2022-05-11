@@ -11,9 +11,15 @@ class Arma(models.Model):
     objeto = models.ForeignKey(Objeto, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
-        objeto_tipo = ObjetoTipo.objects.get(pk=1)
+        objeto_tipo = ObjetoTipo.objects.get(tipo_de_objeto='Arma')
         objeto = Objeto.objects.create(objeto_tipo=objeto_tipo)
         objeto.save()
         self.objeto = objeto
         return super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.objeto:
+            objeto = self.objeto
+            objeto.delete()
+        return super().delete(*args, **kwargs)
     
