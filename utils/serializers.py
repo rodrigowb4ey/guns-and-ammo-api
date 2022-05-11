@@ -22,6 +22,8 @@ class ObjetoTipoSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'tipo_de_objeto']
 
 class ObjetoSerializer(serializers.HyperlinkedModelSerializer):
+    objeto_tipo = serializers.StringRelatedField()
+    
     class Meta:
         model = Objeto
         fields = ['id', 'objeto_tipo']
