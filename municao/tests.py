@@ -37,7 +37,7 @@ class MunicaoTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_update_municao(self):
-        url = "/municao/1/"
+        url = f"/municao/{self.exemplo_municao.pk}/"
         calibre_serialized = CalibreSerializer(self.calibre_updated).data
         municao_data = {
             "calibre": calibre_serialized,
@@ -49,6 +49,6 @@ class MunicaoTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete_municao(self):
-        url = "/municao/1/"
+        url = f"/municao/{self.exemplo_municao.pk}/"
         response = self.client.delete(url, None)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

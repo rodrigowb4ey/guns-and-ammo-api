@@ -41,7 +41,7 @@ class ArmaTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_update_arma(self):
-        url = "/armas/1/"
+        url = f"/armas/{self.exemplo_arma.pk}/"
         calibre_serialized = CalibreSerializer(self.calibre_updated).data
         arma_data = {
             "calibre": calibre_serialized,
@@ -55,6 +55,6 @@ class ArmaTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete_arma(self):
-        url = "/armas/1/"
+        url = f"/armas/{self.exemplo_arma.pk}/"
         response = self.client.delete(url, None)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
