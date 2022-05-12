@@ -1,10 +1,11 @@
 from rest_framework import serializers
+from drf_writable_nested.mixins import NestedUpdateMixin
 from municao.models import Municao
 from utils.models import Calibre
 from utils.serializers import CalibreSerializer, ObjetoSerializer
 
 
-class MunicaoSerializer(serializers.HyperlinkedModelSerializer):
+class MunicaoSerializer(serializers.HyperlinkedModelSerializer, NestedUpdateMixin):
     objeto = ObjetoSerializer(read_only=True)
     calibre = CalibreSerializer()
     
