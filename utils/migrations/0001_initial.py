@@ -8,29 +8,67 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Calibre',
+            name="Calibre",
             fields=[
-                ('id', models.SmallAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('desc_calibre', models.CharField(choices=[('38', '38'), ('380', '380'), ('.40', '.40'), ('.45', '.45')], max_length=45)),
+                (
+                    "id",
+                    models.SmallAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "desc_calibre",
+                    models.CharField(
+                        choices=[
+                            ("38", "38"),
+                            ("380", "380"),
+                            (".40", ".40"),
+                            (".45", ".45"),
+                        ],
+                        max_length=45,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ObjetoTipo',
+            name="ObjetoTipo",
             fields=[
-                ('id', models.SmallAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tipo_de_objeto', models.CharField(choices=[('Arma', 'Arma'), ('Munição', 'Munição')], max_length=64)),
+                (
+                    "id",
+                    models.SmallAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "tipo_de_objeto",
+                    models.CharField(
+                        choices=[("Arma", "Arma"), ("Munição", "Munição")],
+                        max_length=64,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Objeto',
+            name="Objeto",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('objeto_tipo', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='utils.objetotipo')),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                (
+                    "objeto_tipo",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="utils.objetotipo",
+                    ),
+                ),
             ],
         ),
     ]

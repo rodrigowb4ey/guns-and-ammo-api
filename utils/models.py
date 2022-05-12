@@ -12,7 +12,9 @@ class Calibre(models.Model):
         (".45", ".45"),
     )
 
-    desc_calibre = models.CharField(max_length=45, blank=False, choices=CALIBRE_OPTIONS)
+    desc_calibre = models.CharField(
+        max_length=45, blank=False, choices=CALIBRE_OPTIONS
+    )
 
     def __str__(self):
         return self.desc_calibre
@@ -24,7 +26,9 @@ class ObjetoTipo(models.Model):
         ("Munição", "Munição"),
     )
 
-    tipo_de_objeto = models.CharField(max_length=64, blank=False, choices=TIPO_OPTIONS)
+    tipo_de_objeto = models.CharField(
+        max_length=64, blank=False, choices=TIPO_OPTIONS
+    )
 
     def __str__(self):
         return self.tipo_de_objeto

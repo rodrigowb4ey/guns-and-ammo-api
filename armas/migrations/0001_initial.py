@@ -9,21 +9,42 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('utils', '0001_initial'),
+        ("utils", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Arma',
+            name="Arma",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('marca', models.CharField(max_length=64)),
-                ('modelo', models.CharField(max_length=64)),
-                ('quantidade_de_tiros', models.IntegerField()),
-                ('valor_estimado', models.FloatField()),
-                ('imagem', models.CharField(max_length=128)),
-                ('calibre', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='calibre', to='utils.calibre')),
-                ('objeto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='utils.objeto')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("marca", models.CharField(max_length=64)),
+                ("modelo", models.CharField(max_length=64)),
+                ("quantidade_de_tiros", models.IntegerField()),
+                ("valor_estimado", models.FloatField()),
+                ("imagem", models.CharField(max_length=128)),
+                (
+                    "calibre",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="calibre",
+                        to="utils.calibre",
+                    ),
+                ),
+                (
+                    "objeto",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="utils.objeto",
+                    ),
+                ),
             ],
         ),
     ]

@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class MunicaoConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'municao'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "municao"

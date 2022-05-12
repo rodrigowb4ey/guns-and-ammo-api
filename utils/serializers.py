@@ -9,21 +9,24 @@ User = get_user_model()
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email']
+        fields = ["url", "username", "email"]
+
 
 class CalibreSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Calibre
-        fields = ['id', 'desc_calibre']
+        fields = ["id", "desc_calibre"]
+
 
 class ObjetoTipoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ObjetoTipo
-        fields = ['id', 'tipo_de_objeto']
+        fields = ["id", "tipo_de_objeto"]
+
 
 class ObjetoSerializer(serializers.HyperlinkedModelSerializer):
     objeto_tipo = serializers.StringRelatedField()
-    
+
     class Meta:
         model = Objeto
-        fields = ['id', 'objeto_tipo']
+        fields = ["id", "objeto_tipo"]

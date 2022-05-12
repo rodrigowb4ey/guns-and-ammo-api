@@ -6,7 +6,9 @@ from utils.initial_data import calibre_data, objeto_tipo_data
 def pre_populate_calibre_tables():
     for data in calibre_data:
         try:
-            calibre = Calibre.objects.get(desc_calibre=data.get('desc_calibre'))
+            calibre = Calibre.objects.get(
+                desc_calibre=data.get("desc_calibre")
+            )
         except:
             calibre = Calibre.objects.create(**data)
 
@@ -16,7 +18,9 @@ def pre_populate_calibre_tables():
 def pre_populate_objeto_tipo_tables():
     for data in objeto_tipo_data:
         try:
-            objeto_tipo = ObjetoTipo.objects.get(tipo_de_objeto=data.get('tipo_de_objeto'))
+            objeto_tipo = ObjetoTipo.objects.get(
+                tipo_de_objeto=data.get("tipo_de_objeto")
+            )
         except:
             objeto_tipo = ObjetoTipo.objects.create(**data)
 

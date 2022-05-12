@@ -22,13 +22,13 @@ from utils import views
 
 
 router = routers.DefaultRouter()
-router.register(r'calibres', views.CalibreViewSet)
-router.register(r'tipos_de_objeto', views.ObjetoTipoViewSet)
-router.register(r'objetos', views.ObjetoViewSet)
-router.register(r'armas', ArmaViewSet)
-router.register(r'municao', MunicaoViewSet)
+router.register(r"calibres", views.CalibreViewSet)
+router.register(r"tipos_de_objeto", views.ObjetoTipoViewSet)
+router.register(r"objetos", views.ObjetoViewSet)
+router.register(r"armas", ArmaViewSet)
+router.register(r"municao", MunicaoViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin.site.urls),
+    path("", include(router.urls)),
+    path("admin/", admin.site.urls),
 ]
