@@ -1,7 +1,5 @@
 from django.urls import reverse
-from rest_framework import status
 from rest_framework.test import APITestCase
-from municao.models import Municao
 from utils.models import Calibre, ObjetoTipo
 from utils.serializers import CalibreSerializer
 
@@ -10,8 +8,6 @@ class ObjetoTests(APITestCase):
     def setUp(self):
         self.objeto_tipo = ObjetoTipo.objects.create(tipo_de_objeto='Munição')
         self.calibre = Calibre.objects.create(desc_calibre='38')
-        
-        #self.exemplo_municao = Municao.objects.create(**municao_data)
 
     def test_creating_municao_instantiates_objeto(self):
         url = reverse('municao-list')

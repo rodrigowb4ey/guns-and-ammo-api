@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Municao
 
-# Register your models here.
+
+@admin.register(Municao)
+class MunicaoAdmin(admin.ModelAdmin):
+    pass

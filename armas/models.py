@@ -10,6 +10,9 @@ class Arma(models.Model):
     imagem = models.CharField(max_length=128)
     objeto = models.ForeignKey(Objeto, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.modelo
+    
     def save(self, *args, **kwargs):
         try:
             objeto = Objeto.objects.get(pk=self.objeto.pk)
