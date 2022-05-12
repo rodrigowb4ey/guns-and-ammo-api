@@ -14,7 +14,7 @@ class CalibreViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Calibre.objects.all()
     serializer_class = CalibreSerializer
 
-class ObjetoTipoViewSet(viewsets.ModelViewSet):
+class ObjetoTipoViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = ObjetoTipo.objects.all()
     serializer_class = ObjetoTipoSerializer
 
