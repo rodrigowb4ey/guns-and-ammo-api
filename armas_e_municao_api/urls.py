@@ -22,7 +22,6 @@ from utils import views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
 router.register(r'calibres', views.CalibreViewSet)
 router.register(r'tipos_de_objeto', views.ObjetoTipoViewSet)
 router.register(r'objetos', views.ObjetoViewSet)
