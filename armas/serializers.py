@@ -1,10 +1,11 @@
 from rest_framework import serializers
+from drf_writable_nested.mixins import NestedUpdateMixin
 from armas.models import Arma
 from utils.models import Calibre
 from utils.serializers import ObjetoSerializer, CalibreSerializer
 
 
-class ArmaSerializer(serializers.HyperlinkedModelSerializer):
+class ArmaSerializer(serializers.HyperlinkedModelSerializer, NestedUpdateMixin):
     objeto = ObjetoSerializer(read_only=True)
     calibre = CalibreSerializer()
     
@@ -18,4 +19,3 @@ class ArmaSerializer(serializers.HyperlinkedModelSerializer):
         calibre = Calibre.objects.get(desc_calibre=desc_calibre)
         arma = Arma.objects.create(calibre=calibre, **validated_data)
         return arma
-        
