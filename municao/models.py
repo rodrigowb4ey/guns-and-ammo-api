@@ -9,10 +9,15 @@ class Municao(models.Model):
     objeto = models.ForeignKey(Objeto, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
-        objeto_tipo = ObjetoTipo.objects.get(tipo_de_objeto='Munição')
-        objeto = Objeto.objects.create(objeto_tipo=objeto_tipo)
-        objeto.save()
-        self.objeto = objeto
+        try:
+            objeto = Objeto.objects.get(pk=self.objeto.pk)
+            self.objeto = objeto
+        except Objeto.DoesNotExist:  
+            objeto_tipo = ObjetoTipo.objects.get_or_create(tipo_de_objeto='Munição')
+            objeto = Objeto.objects.create(objeto_tipo=objeto_tipo[0])
+            objeto.save()
+            self.objeto = objeto
+        
         return super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):

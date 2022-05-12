@@ -10,6 +10,7 @@ class MunicaoTests(APITestCase):
     def setUp(self):
         self.objeto_tipo = ObjetoTipo.objects.create(tipo_de_objeto='Munição')
         self.calibre = Calibre.objects.create(desc_calibre='38')
+        self.calibre_updated = Calibre.objects.create(desc_calibre='.40')
         municao_data = {
             'calibre': self.calibre,
             'marca': 'OutroTeste',
@@ -37,7 +38,7 @@ class MunicaoTests(APITestCase):
 
     def test_update_municao(self):
         url = '/municao/1/'
-        calibre_serialized = CalibreSerializer(self.calibre).data
+        calibre_serialized = CalibreSerializer(self.calibre_updated).data
         municao_data = {
             'calibre': calibre_serialized,
             'marca': 'Teste',

@@ -10,7 +10,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class CalibreViewSet(viewsets.ModelViewSet):
+class CalibreViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Calibre.objects.all()
     serializer_class = CalibreSerializer
 

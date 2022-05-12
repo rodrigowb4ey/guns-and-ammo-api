@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from armas.models import Arma
 from armas.serializers import ArmaSerializer

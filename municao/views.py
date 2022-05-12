@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from municao.models import Municao
 from municao.serializers import MunicaoSerializer

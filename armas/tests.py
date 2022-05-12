@@ -10,6 +10,7 @@ class ArmaTests(APITestCase):
     def setUp(self):
         self.objeto_tipo = ObjetoTipo.objects.create(tipo_de_objeto='Arma')
         self.calibre = Calibre.objects.create(desc_calibre='38')
+        self.calibre_updated = Calibre.objects.create(desc_calibre='.40')
         arma_data = {
             'calibre': self.calibre,
             'marca': 'OutroTeste',
@@ -41,7 +42,7 @@ class ArmaTests(APITestCase):
 
     def test_update_arma(self):
         url = '/armas/1/'
-        calibre_serialized = CalibreSerializer(self.calibre).data
+        calibre_serialized = CalibreSerializer(self.calibre_updated).data
         arma_data = {
             'calibre': calibre_serialized,
             'marca': 'Teste',
